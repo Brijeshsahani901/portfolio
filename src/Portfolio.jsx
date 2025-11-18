@@ -220,7 +220,7 @@ export default function Portfolio() {
             <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              href="/portfolio2"
+              href="/portfolio"
               className="ml-2 flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-500 px-4 py-2 rounded-lg text-sm font-semibold shadow-lg shadow-cyan-500/25"
             >
               View Sidebar Portfolio
