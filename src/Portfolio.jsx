@@ -671,82 +671,85 @@ export default function Portfolio() {
 
       {/* MOBILE DRAWER */}
       <AnimatePresence>
-        {drawerOpen && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden"
-              onClick={toggleDrawer}
-            />
-            <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 25 }}
-              className="fixed right-0 top-0 h-full w-80 bg-slate-900/95 backdrop-blur-2xl p-6 z-50 lg:hidden border-l border-white/10"
-            >
-              <div className="flex items-center justify-between mb-8">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center font-bold">
-                    BK
-                  </div>
-                  <div>
-                    <div className="text-sm font-semibold">Brijesh Kumar</div>
-                    <div className="text-xs text-white/60">Full-Stack Dev</div>
-                  </div>
-                </div>
-                <button
-                  onClick={toggleDrawer}
-                  className="p-2 rounded-lg hover:bg-white/10 transition"
-                >
-                  <HiX size={20} />
-                </button>
-              </div>
+{drawerOpen && (
+  <>
+    {/* BACKDROP */}
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
+      className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden"
+      onClick={toggleDrawer}
+      style={{ willChange: "opacity" }}
+    />
 
-              <nav className="space-y-2">
-                {["about", "skills", "projects", "experience", "contact"].map(
-                  (item) => (
-                    <a
-                      key={item}
-                      href={`#${item}`}
-                      onClick={toggleDrawer}
-                      className={`block px-4 py-3 rounded-xl text-lg font-medium transition-all ${
-                        activeSection === item
-                          ? "bg-white/10 text-white"
-                          : "text-white/70 hover:text-white hover:bg-white/5"
-                      }`}
-                    >
-                      {item.charAt(0).toUpperCase() + item.slice(1)}
-                    </a>
-                  )
-                )}
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Link
-                    to="/portfolio"
-                    className="ml-2 flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-500 px-4 py-2 rounded-lg text-sm font-semibold shadow-lg shadow-cyan-500/25"
-                  >
-                    View Sidebar Portfolio
-                  </Link>
-                </motion.div>
-              </nav>
+    {/* DRAWER */}
+    <motion.div
+      initial={{ x: "100%" }}
+      animate={{ x: 0 }}
+      exit={{ x: "100%" }}
+      transition={{ duration: 0.35, ease: "easeOut" }}
+      className="fixed right-0 top-0 h-full w-80 bg-slate-900/95 backdrop-blur-xl 
+                 p-6 z-50 lg:hidden border-l border-white/10 shadow-xl"
+      style={{
+        willChange: "transform",
+        WebkitOverflowScrolling: "touch",
+        overflowY: "auto",
+      }}
+    >
+      <div className="flex items-center justify-between mb-8">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 
+                          flex items-center justify-center font-bold">
+            BK
+          </div>
+          <div>
+            <div className="text-sm font-semibold">Brijesh Kumar</div>
+            <div className="text-xs text-white/60">Full-Stack Dev</div>
+          </div>
+        </div>
 
-              <div className="absolute bottom-6 left-6 right-6">
-                <a
-                  href={RESUME_URL}
-                  download
-                  className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-indigo-600 to-purple-600 py-3 rounded-xl font-semibold hover:from-indigo-500 hover:to-purple-500 transition-all"
-                >
-                  <HiDownload /> Download Resume
-                </a>
-              </div>
-            </motion.div>
-          </>
-        )}
+        <button
+          onClick={toggleDrawer}
+          className="p-2 rounded-lg hover:bg-white/10 transition"
+        >
+          <HiX size={20} />
+        </button>
+      </div>
+
+      <nav className="space-y-2">
+        {["about", "skills", "projects", "experience", "contact"].map((item) => (
+          <a
+            key={item}
+            href={`#${item}`}
+            onClick={toggleDrawer}
+            className={`block px-4 py-3 rounded-xl text-lg font-medium transition-all ${
+              activeSection === item
+                ? "bg-white/10 text-white"
+                : "text-white/70 hover:text-white hover:bg-white/5"
+            }`}
+          >
+            {item.charAt(0).toUpperCase() + item.slice(1)}
+          </a>
+        ))}
+      </nav>
+
+      <div className="absolute bottom-6 left-6 right-6">
+        <a
+          href={RESUME_URL}
+          download
+          className="flex items-center justify-center gap-2 w-full 
+                     bg-gradient-to-r from-indigo-600 to-purple-600 py-3 rounded-xl 
+                     font-semibold hover:from-indigo-500 hover:to-purple-500"
+        >
+          <HiDownload /> Download Resume
+        </a>
+      </div>
+    </motion.div>
+  </>
+)}
+
       </AnimatePresence>
     </div>
   );
