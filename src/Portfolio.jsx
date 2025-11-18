@@ -9,6 +9,7 @@ import {
   FaCode,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import CursorContactCard from "./components/CursorContactCard";
 
 const RESUME_URL = "/assets/CV_Brijesh_Kumar_20_08_2025.pdf";
 
@@ -331,7 +332,7 @@ export default function Portfolio() {
                 </motion.div>
               </motion.div>
 
-              <motion.div
+              {/* <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.5, type: "spring" }}
@@ -380,7 +381,9 @@ export default function Portfolio() {
                     </motion.a>
                   </motion.div>
                 </div>
-              </motion.div>
+              </motion.div> */}
+
+              <CursorContactCard/>
             </div>
 
             <motion.div
