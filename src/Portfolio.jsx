@@ -10,6 +10,7 @@ import {
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import CursorContactCard from "./components/CursorContactCard";
+import { skills, experiences,projects } from "./utils/constant";
 
 const RESUME_URL = "/assets/CV_Brijesh_Kumar_20_08_2025.pdf";
 
@@ -55,67 +56,6 @@ export default function Portfolio() {
       window.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
-
-  const skills = [
-    { name: "React.js", level: 95, color: "from-cyan-400 to-blue-500" },
-    { name: "Next.js", level: 90, color: "from-gray-100 to-gray-900" },
-    { name: "Node.js", level: 88, color: "from-green-400 to-green-600" },
-    { name: "Laravel", level: 85, color: "from-red-400 to-red-600" },
-    { name: "MongoDB", level: 82, color: "from-green-500 to-green-700" },
-    { name: "Tailwind", level: 95, color: "from-teal-400 to-cyan-500" },
-    { name: "TypeScript", level: 80, color: "from-blue-500 to-blue-700" },
-    { name: "GraphQL", level: 75, color: "from-pink-500 to-purple-600" },
-  ];
-
-  const projects = [
-    {
-      title: "Islamic Matrimony",
-      url: "https://islamic-matrimony.vercel.app",
-      desc: "Full-stack matrimonial web app with real-time messaging and advanced matching algorithms",
-      tech: ["Next.js", "Node.js", "MongoDB", "Socket.io"],
-      image: "/api/placeholder/400/250",
-    },
-    {
-      title: "Guthbandhan",
-      url: "https://guthbandhan.com",
-      desc: "Community portal with event management and social features",
-      tech: ["React", "Laravel", "MySQL", "Redis"],
-      image: "/api/placeholder/400/250",
-    },
-    {
-      title: "Critical Minerals Dashboard",
-      url: "https://criticalmineralsdashboard.com",
-      desc: "Data visualization dashboard with interactive charts and real-time analytics",
-      tech: ["React", "D3.js", "Python", "PostgreSQL"],
-      image: "/api/placeholder/400/250",
-    },
-  ];
-
-  const experiences = [
-    {
-      company: "Tech Solutions Inc",
-      role: "Full Stack Developer",
-      period: "2022 - Present",
-      description:
-        "Led development of multiple web applications using React and Node.js, improving performance by 40%",
-      achievements: [
-        "Reduced load times by 40%",
-        "Mentored 3 junior developers",
-        "Implemented CI/CD pipeline",
-      ],
-    },
-    {
-      company: "Startup XYZ",
-      role: "Frontend Developer",
-      period: "2021 - 2022",
-      description:
-        "Built responsive web interfaces and collaborated with design team to implement pixel-perfect UIs",
-      achievements: [
-        "Improved SEO scores by 60%",
-        "Built 15+ reusable components",
-      ],
-    },
-  ];
 
   return (
     <div className="relative min-h-screen w-full text-slate-100 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 overflow-x-hidden">
@@ -331,57 +271,6 @@ export default function Portfolio() {
                   <StatsCard label="Technologies" value="15+" delay={0.3} />
                 </motion.div>
               </motion.div>
-
-              {/* <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.5, type: "spring" }}
-                className="relative"
-              >
-                <div className="relative backdrop-blur-2xl bg-white/5 rounded-3xl border border-white/10 p-8 shadow-2xl">
-                  <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-3xl blur-xl -z-10" />
-
-                  <h3 className="text-2xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-                    Let's Build Something Amazing
-                  </h3>
-
-                  <div className="mt-6 space-y-4">
-                    <InfoItem label="Email" value="ninjarapper960@gmail.com" />
-                    <InfoItem label="Phone" value="+91 8512840272" />
-                    <InfoItem label="Location" value="New Delhi, India" />
-                    <InfoItem
-                      label="Status"
-                      value="Available for projects"
-                      status="available"
-                    />
-                  </div>
-
-                  <motion.div
-                    className="flex gap-3 mt-6"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.8 }}
-                  >
-                    <motion.a
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      href="mailto:ninjarapper960@gmail.com"
-                      className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-500 px-4 py-3 rounded-xl font-semibold hover:from-cyan-400 hover:to-blue-400 transition-all shadow-lg shadow-cyan-500/25"
-                    >
-                      <HiMail /> Email Me
-                    </motion.a>
-                    <motion.a
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      href={RESUME_URL}
-                      download
-                      className="flex-1 flex items-center justify-center gap-2 border border-white/20 bg-white/5 px-4 py-3 rounded-xl font-semibold hover:bg-white/10 transition-all"
-                    >
-                      <HiDownload /> Resume
-                    </motion.a>
-                  </motion.div>
-                </div>
-              </motion.div> */}
 
               <CursorContactCard/>
             </div>
@@ -776,21 +665,6 @@ function StatsCard({ label, value, delay = 0 }) {
       <div className="text-2xl font-bold text-cyan-400">{value}</div>
       <div className="text-sm text-white/70 mt-1">{label}</div>
     </motion.div>
-  );
-}
-
-function InfoItem({ label, value, status }) {
-  return (
-    <div className="flex items-center justify-between py-2 border-b border-white/10">
-      <span className="text-white/70">{label}</span>
-      <span
-        className={`font-medium ${
-          status === "available" ? "text-green-400" : "text-white"
-        }`}
-      >
-        {value}
-      </span>
-    </div>
   );
 }
 
