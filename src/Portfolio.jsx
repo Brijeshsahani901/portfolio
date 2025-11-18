@@ -1,4 +1,4 @@
-import React, { useState, Suspense, useRef, useEffect } from "react";
+import  { useState,useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiMenu, HiX, HiDownload, HiMail, HiChevronDown } from "react-icons/hi";
 import {
@@ -8,15 +8,6 @@ import {
   FaTwitter,
   FaCode,
 } from "react-icons/fa";
-import { Canvas, useFrame } from "@react-three/fiber";
-import {
-  OrbitControls,
-  Float,
-  Environment,
-  Html,
-  Stars,
-} from "@react-three/drei";
-import * as THREE from "three";
 import { Link } from "react-router-dom";
 
 const RESUME_URL = "/assets/CV_Brijesh_Kumar_20_08_2025.pdf";
@@ -157,27 +148,6 @@ export default function Portfolio() {
               "radial-gradient(circle, rgba(6,182,212,0.25) 0%, rgba(59,130,246,0.2) 50%, transparent 70%)",
           }}
         />
-      </div>
-
-      {/* 3D Background */}
-      <div className="fixed inset-0 -z-20 opacity-60">
-        <Canvas camera={{ position: [0, 0, 8], fov: 50 }}>
-          <Suspense fallback={null}>
-            <ambientLight intensity={0.5} />
-            <pointLight position={[10, 10, 10]} intensity={1} />
-            <FloatingScene />
-            <Stars radius={100} depth={50} count={2000} factor={4} />
-            <OrbitControls
-              enableZoom={false}
-              autoRotate
-              autoRotateSpeed={0.5}
-              enablePan={false}
-              maxPolarAngle={Math.PI / 2}
-              minPolarAngle={Math.PI / 3}
-            />
-            <Environment preset="dawn" />
-          </Suspense>
-        </Canvas>
       </div>
 
       {/* HEADER */}
@@ -951,70 +921,5 @@ function ContactInfo({ icon, label, value }) {
         <div className="font-semibold">{value}</div>
       </div>
     </div>
-  );
-}
-
-/* -------------------- 3D COMPONENTS -------------------- */
-
-function FloatingScene() {
-  const groupRef = useRef();
-
-  useFrame((state, delta) => {
-    if (groupRef.current) {
-      groupRef.current.rotation.y += delta * 0.1;
-      groupRef.current.rotation.x =
-        Math.sin(state.clock.elapsedTime * 0.5) * 0.1;
-      groupRef.current.position.y =
-        Math.sin(state.clock.elapsedTime * 0.3) * 0.2;
-    }
-  });
-
-  return (
-    <group ref={groupRef}>
-      {/* Main floating orb */}
-      <mesh position={[-2, 1, 0]}>
-        <sphereGeometry args={[0.8, 32, 32]} />
-        <meshStandardMaterial
-          color={new THREE.Color(0x3b82f6)}
-          emissive={new THREE.Color(0x1d4ed8)}
-          roughness={0.3}
-          metalness={0.7}
-        />
-      </mesh>
-
-      {/* Secondary floating shapes */}
-      <mesh position={[2, -1, 1]} rotation={[Math.PI / 4, Math.PI / 4, 0]}>
-        <octahedronGeometry args={[0.6, 0]} />
-        <meshStandardMaterial
-          color={new THREE.Color(0x8b5cf6)}
-          emissive={new THREE.Color(0x7c3aed)}
-          roughness={0.2}
-          metalness={0.8}
-        />
-      </mesh>
-
-      {/* Small floating cube */}
-      <mesh position={[0, 2, -1]} rotation={[Math.PI / 6, Math.PI / 6, 0]}>
-        <boxGeometry args={[0.5, 0.5, 0.5]} />
-        <meshStandardMaterial
-          color={new THREE.Color(0x06b6d4)}
-          emissive={new THREE.Color(0x0891b2)}
-          roughness={0.4}
-          metalness={0.6}
-        />
-      </mesh>
-
-      {/* Floating HTML label */}
-      <Html position={[0, -2.5, 0]} center>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 1 }}
-          className="px-4 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm text-white text-sm font-medium shadow-lg"
-        >
-          👋 Hello World!
-        </motion.div>
-      </Html>
-    </group>
   );
 }
