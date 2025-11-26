@@ -176,16 +176,6 @@ export default function CursorContactCard({ RESUME_URL = "#" }) {
             >
               <HiMail /> Email Me
             </motion.a>
-
-            <motion.a
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              href={RESUME_URL}
-              download
-              className="flex-1 flex items-center justify-center gap-2 border border-white/20 bg-white/4 px-4 py-3 rounded-xl font-semibold hover:bg-white/10 transition-all"
-            >
-              <HiDownload /> Resume
-            </motion.a>
           </motion.div>
         </div>
 
