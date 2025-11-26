@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { skills, projects , experiences } from './utils/constant';
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Portfolio2 = () => {
-  const [activeSection, setActiveSection] = useState('home');
+  const [activeSection, setActiveSection] = useState("home");
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -17,21 +16,89 @@ const Portfolio2 = () => {
       setIsScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
       clearTimeout(timer);
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   const menuItems = [
-    { id: 'home', label: 'Home', icon: '🏠' },
-    { id: 'about', label: 'About', icon: '👨‍💻' },
-    { id: 'skills', label: 'Skills', icon: '⚡' },
-    { id: 'projects', label: 'Projects', icon: '🚀' },
-    { id: 'experience', label: 'Experience', icon: '💼' },
-    { id: 'education', label: 'Education', icon: '🎓' },
-    { id: 'contact', label: 'Contact', icon: '📞' }
+    { id: "home", label: "Home", icon: "🏠" },
+    { id: "about", label: "About", icon: "👨‍💻" },
+    { id: "skills", label: "Skills", icon: "⚡" },
+    { id: "projects", label: "Projects", icon: "🚀" },
+    { id: "experience", label: "Experience", icon: "💼" },
+    { id: "education", label: "Education", icon: "🎓" },
+    { id: "contact", label: "Contact", icon: "📞" },
+  ];
+
+  const skills = [
+    { name: "React.js", level: 90, color: "from-purple-500 to-violet-600" },
+    { name: "Node.js", level: 85, color: "from-indigo-500 to-blue-600" },
+    { name: "NextJS", level: 80, color: "from-gray-400 to-black" },
+    { name: "JavaScript", level: 88, color: "from-yellow-400 to-amber-500" },
+    { name: "RESTful APIs", level: 85, color: "from-fuchsia-500 to-pink-600" },
+    { name: "MongoDB", level: 75, color: "from-emerald-400 to-green-600" },
+    { name: "Git", level: 80, color: "from-orange-500 to-red-500" },
+    { name: "Tailwind CSS", level: 85, color: "from-cyan-400 to-blue-500" },
+    { name: "Laravel PHP", level: 70, color: "from-red-400 to-pink-500" },
+    {
+      name: "Tanstack Query",
+      level: 75,
+      color: "from-orange-400 to-amber-500",
+    },
+  ];
+
+  const projects = [
+    {
+      name: "Islamic Matrimony",
+      url: "https://islamic-matrimony.vercel.app",
+      description:
+        "A full-stack matrimonial platform with advanced matching algorithms",
+      tech: ["React", "Node.js", "MongoDB"],
+      image: "🕌",
+      gradient: "from-purple-500 to-violet-600",
+    },
+    {
+      name: "Guthbandhan",
+      url: "https://guthbandhan.com",
+      description: "Relationship management application with social features",
+      tech: ["NextJS", "Tailwind", "Firebase"],
+      image: "💑",
+      gradient: "from-indigo-500 to-blue-600",
+    },
+    {
+      name: "Critical Minerals Dashboard",
+      url: "https://criticalmineralsdashboard.com",
+      description:
+        "Data visualization dashboard for mineral resources analytics",
+      tech: ["React", "D3.js", "Python"],
+      image: "📊",
+      gradient: "from-fuchsia-500 to-pink-600",
+    },
+    {
+      name: "Email Validator",
+      url: "https://emailValidator.alpinesoftit.com",
+      description: "Real time validator",
+      tech: ["React", "nodejs", "mongodb", "tanstackquery"],
+      image: "🕌",
+      gradient: "from-fuchsia-500 to-pink-600",
+    },
+  ];
+
+  const experiences = [
+    {
+      title: "Full-Stack Developer",
+      company: "AlpineSoft IT Solutions",
+      period: "2 Years",
+      achievements: [
+        "Developed and maintained scalable web applications with modern tech stacks",
+        "Collaborated with cross-functional teams to deliver end-to-end solutions",
+        "Implemented best practices in coding, debugging, and deployment",
+        "Enhanced user experience and system performance across multiple projects",
+      ],
+    },
   ];
 
   if (isLoading) {
@@ -43,19 +110,19 @@ const Portfolio2 = () => {
           transition={{
             type: "spring",
             stiffness: 260,
-            damping: 20
+            damping: 20,
           }}
           className="text-center"
         >
           <motion.div
-            animate={{ 
+            animate={{
               rotate: 360,
-              scale: [1, 1.2, 1]
+              scale: [1, 1.2, 1],
             }}
-            transition={{ 
-              duration: 2, 
-              repeat: Infinity, 
-              ease: "easeInOut" 
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut",
             }}
             className="w-24 h-24 bg-gradient-to-r from-purple-500 to-violet-600 rounded-full mx-auto mb-6 flex items-center justify-center text-2xl font-bold shadow-2xl shadow-purple-500/30 border-2 border-purple-400/50"
           >
@@ -78,14 +145,14 @@ const Portfolio2 = () => {
             {[0, 1, 2].map((index) => (
               <motion.div
                 key={index}
-                animate={{ 
+                animate={{
                   scale: [1, 1.5, 1],
-                  opacity: [0.5, 1, 0.5]
+                  opacity: [0.5, 1, 0.5],
                 }}
-                transition={{ 
-                  duration: 1.5, 
+                transition={{
+                  duration: 1.5,
                   repeat: Infinity,
-                  delay: index * 0.2 
+                  delay: index * 0.2,
                 }}
                 className="w-2 h-2 bg-purple-400 rounded-full"
               />
@@ -100,39 +167,39 @@ const Portfolio2 = () => {
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900 text-white relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="fixed inset-0 overflow-hidden">
-        <motion.div 
-          animate={{ 
+        <motion.div
+          animate={{
             x: [0, 100, 0],
-            y: [0, -50, 0]
+            y: [0, -50, 0],
           }}
-          transition={{ 
-            duration: 20, 
+          transition={{
+            duration: 20,
             repeat: Infinity,
-            ease: "linear" 
+            ease: "linear",
           }}
           className="absolute top-20 right-20 w-96 h-96 bg-purple-600 rounded-full blur-3xl opacity-20"
         ></motion.div>
-        <motion.div 
-          animate={{ 
+        <motion.div
+          animate={{
             x: [0, -80, 0],
-            y: [0, 60, 0]
+            y: [0, 60, 0],
           }}
-          transition={{ 
-            duration: 25, 
+          transition={{
+            duration: 25,
             repeat: Infinity,
-            ease: "linear" 
+            ease: "linear",
           }}
           className="absolute bottom-20 left-20 w-80 h-80 bg-violet-600 rounded-full blur-3xl opacity-20"
         ></motion.div>
-        <motion.div 
-          animate={{ 
+        <motion.div
+          animate={{
             x: [0, 60, 0],
-            y: [0, -30, 0]
+            y: [0, -30, 0],
           }}
-          transition={{ 
-            duration: 30, 
+          transition={{
+            duration: 30,
             repeat: Infinity,
-            ease: "linear" 
+            ease: "linear",
           }}
           className="absolute top-1/2 left-1/3 w-64 h-64 bg-fuchsia-600 rounded-full blur-3xl opacity-20"
         ></motion.div>
@@ -150,14 +217,14 @@ const Portfolio2 = () => {
               onClick={() => setIsDrawerOpen(false)}
             />
             <motion.div
-              initial={{ x: '-100%' }}
+              initial={{ x: "-100%" }}
               animate={{ x: 0 }}
-              exit={{ x: '-100%' }}
-              transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+              exit={{ x: "-100%" }}
+              transition={{ type: "spring", damping: 30, stiffness: 300 }}
               className="fixed left-0 top-0 h-full w-80 bg-gray-900/95 backdrop-blur-xl border-r border-purple-500/30 z-50 lg:hidden p-6 shadow-2xl"
             >
               <div className="flex justify-between items-center mb-8">
-                <motion.h2 
+                <motion.h2
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   className="text-xl font-bold bg-gradient-to-r from-purple-400 to-violet-400 bg-clip-text text-transparent"
@@ -184,16 +251,16 @@ const Portfolio2 = () => {
                       setActiveSection(item.id);
                       setIsDrawerOpen(false);
                     }}
-                    className={`flex items-center space-x-4 w-full text-left p-4 rounded-2xl transition-all duration-300 group ${
+                    className={`flex cursor-pointer items-center space-x-4 w-full text-left p-4 rounded-2xl transition-all duration-300 group ${
                       activeSection === item.id
-                        ? 'bg-gradient-to-r from-purple-500/40 to-violet-500/40 border border-purple-500/50 shadow-lg shadow-purple-500/30'
-                        : 'hover:bg-white/10 border border-transparent hover:border-purple-500/30'
+                        ? "bg-gradient-to-r from-purple-500/40 to-violet-500/40 border border-purple-500/50 shadow-lg shadow-purple-500/30"
+                        : "hover:bg-white/10 border border-transparent hover:border-purple-500/30"
                     }`}
                   >
                     <span className="text-2xl group-hover:scale-110 transition-transform duration-300">
                       {item.icon}
                     </span>
-                    <span className="text-lg font-medium group-hover:text-purple-300 transition-colors duration-300">
+                    <span className="text-lg cursor-pointer font-medium group-hover:text-purple-300 transition-colors duration-300">
                       {item.label}
                     </span>
                   </motion.button>
@@ -223,7 +290,7 @@ const Portfolio2 = () => {
           >
             BK
           </motion.div>
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
@@ -231,7 +298,7 @@ const Portfolio2 = () => {
           >
             Brijesh Kumar
           </motion.h1>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.7 }}
@@ -248,12 +315,12 @@ const Portfolio2 = () => {
               initial={{ x: -50, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 0.1 * index + 0.8 }}
-              whileHover={{ x: 10, backgroundColor: 'rgba(168, 85, 247, 0.1)' }}
+              whileHover={{ x: 10, backgroundColor: "rgba(168, 85, 247, 0.1)" }}
               onClick={() => setActiveSection(item.id)}
-              className={`flex items-center space-x-4 w-full text-left p-4 rounded-2xl transition-all duration-300 group border ${
+              className={`flex items-center cursor-pointer space-x-4 w-full text-left p-4 rounded-2xl transition-all duration-300 group border ${
                 activeSection === item.id
-                  ? 'bg-gradient-to-r from-purple-500/40 to-violet-500/40 border-purple-500/50 shadow-lg shadow-purple-500/30'
-                  : 'border-transparent hover:border-purple-500/30'
+                  ? "bg-gradient-to-r from-purple-500/40 to-violet-500/40 border-purple-500/50 shadow-lg shadow-purple-500/30"
+                  : "border-transparent hover:border-purple-500/30"
               }`}
             >
               <span className="text-2xl group-hover:scale-110 transition-transform duration-300">
@@ -273,11 +340,13 @@ const Portfolio2 = () => {
           className="text-center"
         >
           <div className="bg-purple-500/10 rounded-2xl p-4 border border-purple-500/20">
-            <p className="text-sm text-gray-300 mb-2">Available for new projects</p>
+            <p className="text-sm text-gray-300 mb-2">
+              Available for new projects
+            </p>
             <motion.button
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => setActiveSection('contact')}
+              onClick={() => setActiveSection("contact")}
               className="bg-gradient-to-r from-purple-500 to-violet-500 px-6 py-2 rounded-full font-semibold text-sm shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 transition-all duration-300"
             >
               Hire Me
@@ -293,9 +362,9 @@ const Portfolio2 = () => {
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           className={`lg:hidden fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-            isScrolled 
-              ? 'bg-gray-900/95 backdrop-blur-xl border-b border-purple-500/30' 
-              : 'bg-transparent'
+            isScrolled
+              ? "bg-gray-900/95 backdrop-blur-xl border-b border-purple-500/30"
+              : "bg-transparent"
           }`}
         >
           <div className="p-4 flex justify-between items-center">
@@ -307,7 +376,7 @@ const Portfolio2 = () => {
             >
               <span className="text-xl">☰</span>
             </motion.button>
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               className="text-lg font-bold bg-gradient-to-r from-purple-400 to-violet-400 bg-clip-text text-transparent"
@@ -322,7 +391,7 @@ const Portfolio2 = () => {
         <div className="pt-20 lg:pt-6 p-6 max-w-6xl mx-auto">
           {/* Home Section */}
           <AnimatePresence mode="wait">
-            {activeSection === 'home' && (
+            {activeSection === "home" && (
               <motion.section
                 key="home"
                 initial={{ opacity: 0, y: 20 }}
@@ -362,8 +431,9 @@ const Portfolio2 = () => {
                     transition={{ delay: 0.8 }}
                     className="text-lg lg:text-xl text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed"
                   >
-                    Crafting digital experiences with modern technologies. 
-                    Passionate about building scalable, user-centric web solutions.
+                    Crafting digital experiences with modern technologies.
+                    Passionate about building scalable, user-centric web
+                    solutions.
                   </motion.p>
                   <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -374,7 +444,7 @@ const Portfolio2 = () => {
                     <motion.button
                       whileHover={{ scale: 1.05, y: -5 }}
                       whileTap={{ scale: 0.95 }}
-                      onClick={() => setActiveSection('projects')}
+                      onClick={() => setActiveSection("projects")}
                       className="bg-gradient-to-r from-purple-500 to-violet-500 px-8 py-4 rounded-2xl font-semibold text-lg shadow-2xl shadow-purple-500/30 hover:shadow-purple-500/50 transition-all duration-300"
                     >
                       View My Work
@@ -382,7 +452,7 @@ const Portfolio2 = () => {
                     <motion.button
                       whileHover={{ scale: 1.05, y: -5 }}
                       whileTap={{ scale: 0.95 }}
-                      onClick={() => setActiveSection('contact')}
+                      onClick={() => setActiveSection("contact")}
                       className="border border-purple-500/50 bg-purple-500/10 px-8 py-4 rounded-2xl font-semibold text-lg backdrop-blur-sm hover:bg-purple-500/20 transition-all duration-300"
                     >
                       Get In Touch
@@ -393,7 +463,7 @@ const Portfolio2 = () => {
             )}
 
             {/* About Section */}
-            {activeSection === 'about' && (
+            {activeSection === "about" && (
               <motion.section
                 key="about"
                 initial={{ opacity: 0, y: 20 }}
@@ -409,7 +479,7 @@ const Portfolio2 = () => {
                 >
                   About Me
                 </motion.h2>
-                
+
                 <div className="grid lg:grid-cols-2 gap-8">
                   <motion.div
                     initial={{ opacity: 0, x: -50 }}
@@ -417,14 +487,28 @@ const Portfolio2 = () => {
                     transition={{ delay: 0.2 }}
                     className="bg-gray-900/80 backdrop-blur-xl rounded-3xl p-8 border border-purple-500/30 shadow-2xl"
                   >
-                    <h3 className="text-2xl font-semibold mb-6 text-purple-400">Personal Details</h3>
+                    <h3 className="text-2xl font-semibold mb-6 text-purple-400">
+                      Personal Details
+                    </h3>
                     <div className="space-y-4 text-gray-300">
                       {[
-                        { icon: '📍', label: 'Location', value: 'Delhi, India' },
-                        { icon: '📧', label: 'Email', value: 'ningrapper960@gmail.com' },
-                        { icon: '📱', label: 'Phone', value: '+91 8512840272' },
-                        { icon: '🎂', label: 'Date of Birth', value: '9 June 2000' },
-                        { icon: '🇮🇳', label: 'Nationality', value: 'Indian' }
+                        {
+                          icon: "📍",
+                          label: "Location",
+                          value: "Delhi, India",
+                        },
+                        {
+                          icon: "📧",
+                          label: "Email",
+                          value: "ningrapper960@gmail.com",
+                        },
+                        { icon: "📱", label: "Phone", value: "+91 8512840272" },
+                        {
+                          icon: "🎂",
+                          label: "Date of Birth",
+                          value: "9 June 2000",
+                        },
+                        { icon: "🇮🇳", label: "Nationality", value: "Indian" },
                       ].map((item, index) => (
                         <motion.div
                           key={item.label}
@@ -435,7 +519,9 @@ const Portfolio2 = () => {
                         >
                           <span className="text-2xl">{item.icon}</span>
                           <div>
-                            <p className="font-semibold text-purple-300">{item.label}</p>
+                            <p className="font-semibold text-purple-300">
+                              {item.label}
+                            </p>
                             <p>{item.value}</p>
                           </div>
                         </motion.div>
@@ -449,18 +535,28 @@ const Portfolio2 = () => {
                     transition={{ delay: 0.4 }}
                     className="bg-gray-900/80 backdrop-blur-xl rounded-3xl p-8 border border-violet-500/30 shadow-2xl"
                   >
-                    <h3 className="text-2xl font-semibold mb-6 text-violet-400">Profile</h3>
+                    <h3 className="text-2xl font-semibold mb-6 text-violet-400">
+                      Profile
+                    </h3>
                     <p className="text-gray-300 mb-8 leading-relaxed text-lg">
-                      Dedicated full-stack developer with a strong foundation in computer 
-                      applications and a passion for creating efficient, scalable, and 
-                      user-centric web solutions. Currently pursuing an MCA degree to 
-                      enhance technical expertise and stay aligned with emerging technologies.
+                      Dedicated full-stack developer with a strong foundation in
+                      computer applications and a passion for creating
+                      efficient, scalable, and user-centric web solutions.
+                      Currently pursuing an MCA degree to enhance technical
+                      expertise and stay aligned with emerging technologies.
                     </p>
-                    
+
                     <div>
-                      <h4 className="text-xl font-semibold mb-4 text-fuchsia-400">Core Qualities</h4>
+                      <h4 className="text-xl font-semibold mb-4 text-fuchsia-400">
+                        Core Qualities
+                      </h4>
                       <div className="grid grid-cols-2 gap-3">
-                        {['Time Management', 'Adaptability', 'Problem-solving', 'Teamwork'].map((quality, index) => (
+                        {[
+                          "Time Management",
+                          "Adaptability",
+                          "Problem-solving",
+                          "Teamwork",
+                        ].map((quality, index) => (
                           <motion.div
                             key={quality}
                             initial={{ opacity: 0, scale: 0 }}
@@ -479,7 +575,7 @@ const Portfolio2 = () => {
             )}
 
             {/* Skills Section */}
-            {activeSection === 'skills' && (
+            {activeSection === "skills" && (
               <motion.section
                 key="skills"
                 initial={{ opacity: 0, y: 20 }}
@@ -495,7 +591,7 @@ const Portfolio2 = () => {
                 >
                   Technical Skills
                 </motion.h2>
-                
+
                 <div className="grid md:grid-cols-2 gap-6">
                   {skills.map((skill, index) => (
                     <motion.div
@@ -510,13 +606,19 @@ const Portfolio2 = () => {
                         <span className="font-semibold text-lg group-hover:text-purple-300 transition-colors duration-300">
                           {skill.name}
                         </span>
-                        <span className="text-purple-400 font-bold">{skill.level}%</span>
+                        <span className="text-purple-400 font-bold">
+                          {skill.level}%
+                        </span>
                       </div>
                       <div className="w-full bg-gray-700/50 rounded-full h-3">
                         <motion.div
                           initial={{ width: 0 }}
                           animate={{ width: `${skill.level}%` }}
-                          transition={{ delay: index * 0.1 + 0.5, duration: 1.5, type: "spring" }}
+                          transition={{
+                            delay: index * 0.1 + 0.5,
+                            duration: 1.5,
+                            type: "spring",
+                          }}
                           className={`bg-gradient-to-r ${skill.color} h-3 rounded-full shadow-lg group-hover:shadow-purple-500/30 transition-all duration-300`}
                         />
                       </div>
@@ -527,7 +629,7 @@ const Portfolio2 = () => {
             )}
 
             {/* Projects Section */}
-            {activeSection === 'projects' && (
+            {activeSection === "projects" && (
               <motion.section
                 key="projects"
                 initial={{ opacity: 0, y: 20 }}
@@ -543,7 +645,7 @@ const Portfolio2 = () => {
                 >
                   Featured Projects
                 </motion.h2>
-                
+
                 <div className="grid md:grid-cols-2 gap-8">
                   {projects.map((project, index) => (
                     <motion.div
@@ -554,7 +656,9 @@ const Portfolio2 = () => {
                       whileHover={{ scale: 1.05, y: -10 }}
                       className="bg-gray-900/80 backdrop-blur-xl rounded-3xl overflow-hidden border border-white/10 shadow-2xl group hover:shadow-purple-500/20 transition-all duration-500"
                     >
-                      <div className={`h-2 bg-gradient-to-r ${project.gradient}`}></div>
+                      <div
+                        className={`h-2 bg-gradient-to-r ${project.gradient}`}
+                      ></div>
                       <div className="p-6">
                         <div className="flex items-center space-x-4 mb-4">
                           <div className="text-4xl group-hover:scale-110 transition-transform duration-300">
@@ -564,12 +668,17 @@ const Portfolio2 = () => {
                             <h3 className="text-xl font-semibold group-hover:text-purple-300 transition-colors duration-300">
                               {project.name}
                             </h3>
-                            <p className="text-gray-400 text-sm">{project.description}</p>
+                            <p className="text-gray-400 text-sm">
+                              {project.description}
+                            </p>
                           </div>
                         </div>
                         <div className="flex flex-wrap gap-2 mb-4">
                           {project.tech.map((tech) => (
-                            <span key={tech} className="bg-purple-500/20 text-purple-300 px-3 py-1 rounded-full text-xs border border-purple-500/30">
+                            <span
+                              key={tech}
+                              className="bg-purple-500/20 text-purple-300 px-3 py-1 rounded-full text-xs border border-purple-500/30"
+                            >
                               {tech}
                             </span>
                           ))}
@@ -582,7 +691,9 @@ const Portfolio2 = () => {
                           rel="noopener noreferrer"
                           className="block w-full bg-gradient-to-r from-purple-500 to-violet-500 text-center py-3 rounded-2xl font-semibold shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 transition-all duration-300"
                         >
-                          {project.name === 'Portfolio V2' ? 'Coming Soon' : 'Live Demo →'}
+                          {project.name === "Portfolio V2"
+                            ? "Coming Soon"
+                            : "Live Demo →"}
                         </motion.a>
                       </div>
                     </motion.div>
@@ -592,7 +703,7 @@ const Portfolio2 = () => {
             )}
 
             {/* Experience Section */}
-            {activeSection === 'experience' && (
+            {activeSection === "experience" && (
               <motion.section
                 key="experience"
                 initial={{ opacity: 0, y: 20 }}
@@ -608,7 +719,7 @@ const Portfolio2 = () => {
                 >
                   Experience
                 </motion.h2>
-                
+
                 {experiences.map((exp, index) => (
                   <motion.div
                     key={index}
@@ -619,8 +730,12 @@ const Portfolio2 = () => {
                   >
                     <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6">
                       <div>
-                        <h3 className="text-2xl font-semibold text-purple-400 mb-2">{exp.title}</h3>
-                        <p className="text-xl text-violet-400 mb-2">{exp.company}</p>
+                        <h3 className="text-2xl font-semibold text-purple-400 mb-2">
+                          {exp.title}
+                        </h3>
+                        <p className="text-xl text-violet-400 mb-2">
+                          {exp.company}
+                        </p>
                         <p className="text-gray-400">{exp.period}</p>
                       </div>
                       <motion.div
@@ -632,7 +747,7 @@ const Portfolio2 = () => {
                         </span>
                       </motion.div>
                     </div>
-                    
+
                     <ul className="space-y-3">
                       {exp.achievements.map((achievement, idx) => (
                         <motion.li
@@ -653,7 +768,7 @@ const Portfolio2 = () => {
             )}
 
             {/* Education Section */}
-            {activeSection === 'education' && (
+            {activeSection === "education" && (
               <motion.section
                 key="education"
                 initial={{ opacity: 0, y: 20 }}
@@ -669,7 +784,7 @@ const Portfolio2 = () => {
                 >
                   Education
                 </motion.h2>
-                
+
                 <motion.div
                   initial={{ opacity: 0, x: -50 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -688,15 +803,16 @@ const Portfolio2 = () => {
                     </div>
                   </div>
                   <p className="text-gray-300 text-lg leading-relaxed">
-                    Currently pursuing MCA to enhance technical expertise and stay aligned with 
-                    emerging technologies in the field of computer applications and software development.
+                    Currently pursuing MCA to enhance technical expertise and
+                    stay aligned with emerging technologies in the field of
+                    computer applications and software development.
                   </p>
                 </motion.div>
               </motion.section>
             )}
 
             {/* Contact Section */}
-            {activeSection === 'contact' && (
+            {activeSection === "contact" && (
               <motion.section
                 key="contact"
                 initial={{ opacity: 0, y: 20 }}
@@ -712,7 +828,7 @@ const Portfolio2 = () => {
                 >
                   Let's Connect
                 </motion.h2>
-                
+
                 <div className="grid lg:grid-cols-2 gap-8">
                   <motion.div
                     initial={{ opacity: 0, x: -50 }}
@@ -720,12 +836,29 @@ const Portfolio2 = () => {
                     transition={{ delay: 0.2 }}
                     className="bg-gray-900/80 backdrop-blur-xl rounded-3xl p-8 border border-purple-500/30 shadow-2xl"
                   >
-                    <h3 className="text-2xl font-semibold mb-6 text-purple-400">Get In Touch</h3>
+                    <h3 className="text-2xl font-semibold mb-6 text-purple-400">
+                      Get In Touch
+                    </h3>
                     <div className="space-y-6">
                       {[
-                        { icon: '📧', label: 'Email', value: 'ningrapper960@gmail.com', color: 'purple' },
-                        { icon: '📱', label: 'Phone', value: '+91 8512840272', color: 'violet' },
-                        { icon: '📍', label: 'Location', value: 'Delhi, India', color: 'fuchsia' }
+                        {
+                          icon: "📧",
+                          label: "Email",
+                          value: "ningrapper960@gmail.com",
+                          color: "purple",
+                        },
+                        {
+                          icon: "📱",
+                          label: "Phone",
+                          value: "+91 8512840272",
+                          color: "violet",
+                        },
+                        {
+                          icon: "📍",
+                          label: "Location",
+                          value: "Delhi, India",
+                          color: "fuchsia",
+                        },
                       ].map((item, index) => (
                         <motion.div
                           key={item.label}
@@ -739,7 +872,9 @@ const Portfolio2 = () => {
                             {item.icon}
                           </div>
                           <div>
-                            <p className="font-semibold text-purple-300">{item.label}</p>
+                            <p className="font-semibold text-purple-300">
+                              {item.label}
+                            </p>
                             <p className="text-gray-400">{item.value}</p>
                           </div>
                         </motion.div>
@@ -753,11 +888,15 @@ const Portfolio2 = () => {
                     transition={{ delay: 0.4 }}
                     className="bg-gray-900/80 backdrop-blur-xl rounded-3xl p-8 border border-violet-500/30 shadow-2xl"
                   >
-                    <h3 className="text-2xl font-semibold mb-6 text-violet-400">Send Message</h3>
+                    <h3 className="text-2xl font-semibold mb-6 text-violet-400">
+                      Send Message
+                    </h3>
                     <form className="space-y-6">
                       <div className="grid md:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-sm font-medium mb-2 text-gray-300">Name</label>
+                          <label className="block text-sm font-medium mb-2 text-gray-300">
+                            Name
+                          </label>
                           <input
                             type="text"
                             className="w-full bg-white/5 border border-purple-500/30 rounded-2xl px-4 py-3 focus:outline-none focus:border-purple-500 transition-all duration-300 backdrop-blur-sm"
@@ -765,7 +904,9 @@ const Portfolio2 = () => {
                           />
                         </div>
                         <div>
-                          <label className="block text-sm font-medium mb-2 text-gray-300">Email</label>
+                          <label className="block text-sm font-medium mb-2 text-gray-300">
+                            Email
+                          </label>
                           <input
                             type="email"
                             className="w-full bg-white/5 border border-purple-500/30 rounded-2xl px-4 py-3 focus:outline-none focus:border-purple-500 transition-all duration-300 backdrop-blur-sm"
@@ -774,7 +915,9 @@ const Portfolio2 = () => {
                         </div>
                       </div>
                       <div>
-                        <label className="block text-sm font-medium mb-2 text-gray-300">Subject</label>
+                        <label className="block text-sm font-medium mb-2 text-gray-300">
+                          Subject
+                        </label>
                         <input
                           type="text"
                           className="w-full bg-white/5 border border-purple-500/30 rounded-2xl px-4 py-3 focus:outline-none focus:border-purple-500 transition-all duration-300 backdrop-blur-sm"
@@ -782,7 +925,9 @@ const Portfolio2 = () => {
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium mb-2 text-gray-300">Message</label>
+                        <label className="block text-sm font-medium mb-2 text-gray-300">
+                          Message
+                        </label>
                         <textarea
                           rows="5"
                           className="w-full bg-white/5 border border-purple-500/30 rounded-2xl px-4 py-3 focus:outline-none focus:border-purple-500 transition-all duration-300 backdrop-blur-sm resize-none"
