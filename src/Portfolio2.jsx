@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { skills, projects , experiences } from './utils/constant';
 
 const Portfolio2 = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -31,60 +32,6 @@ const Portfolio2 = () => {
     { id: 'experience', label: 'Experience', icon: '💼' },
     { id: 'education', label: 'Education', icon: '🎓' },
     { id: 'contact', label: 'Contact', icon: '📞' }
-  ];
-
-  const skills = [
-    { name: 'React.js', level: 90, color: 'from-purple-500 to-violet-600' },
-    { name: 'Node.js', level: 85, color: 'from-indigo-500 to-blue-600' },
-    { name: 'NextJS', level: 80, color: 'from-gray-400 to-black' },
-    { name: 'JavaScript', level: 88, color: 'from-yellow-400 to-amber-500' },
-    { name: 'RESTful APIs', level: 85, color: 'from-fuchsia-500 to-pink-600' },
-    { name: 'MongoDB', level: 75, color: 'from-emerald-400 to-green-600' },
-    { name: 'Git', level: 80, color: 'from-orange-500 to-red-500' },
-    { name: 'Tailwind CSS', level: 85, color: 'from-cyan-400 to-blue-500' },
-    { name: 'Laravel PHP', level: 70, color: 'from-red-400 to-pink-500' },
-    { name: 'Tanstack Query', level: 75, color: 'from-orange-400 to-amber-500' }
-  ];
-
-  const projects = [
-    {
-      name: 'Islamic Matrimony',
-      url: 'https://islamic-matrimony.vercel.app',
-      description: 'A full-stack matrimonial platform with advanced matching algorithms',
-      tech: ['React', 'Node.js', 'MongoDB'],
-      image: '🕌',
-      gradient: 'from-purple-500 to-violet-600'
-    },
-    {
-      name: 'Guthbandhan',
-      url: 'https://guthbandhan.com',
-      description: 'Relationship management application with social features',
-      tech: ['NextJS', 'Tailwind', 'Firebase'],
-      image: '💑',
-      gradient: 'from-indigo-500 to-blue-600'
-    },
-    {
-      name: 'Critical Minerals Dashboard',
-      url: 'https://criticalmineralsdashboard.com',
-      description: 'Data visualization dashboard for mineral resources analytics',
-      tech: ['React', 'D3.js', 'Python'],
-      image: '📊',
-      gradient: 'from-fuchsia-500 to-pink-600'
-    },
-  ];
-
-  const experiences = [
-    {
-      title: "Full-Stack Developer",
-      company: "AlpineSoft IT Solutions",
-      period: "2 Years",
-      achievements: [
-        "Developed and maintained scalable web applications with modern tech stacks",
-        "Collaborated with cross-functional teams to deliver end-to-end solutions",
-        "Implemented best practices in coding, debugging, and deployment",
-        "Enhanced user experience and system performance across multiple projects"
-      ]
-    }
   ];
 
   if (isLoading) {
