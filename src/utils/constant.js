@@ -15,21 +15,21 @@
       title: "Islamic Matrimony",
       url: "https://islamic-matrimony.vercel.app",
       desc: "Full-stack matrimonial web app with real-time messaging and advanced matching algorithms",
-      tech: ["Next.js", "Node.js", "MongoDB", "Socket.io"],
+      tech: ["Reactjs", "Laravel", "Mysql"],
       image: "/api/placeholder/400/250",
     },
     {
       title: "Guthbandhan",
       url: "https://guthbandhan.com",
       desc: "Community portal with event management and social features",
-      tech: ["React", "Laravel", "MySQL", "Redis"],
+      tech: ["React", "Nodejs", "MongoDb", "Redis"],
       image: "/api/placeholder/400/250",
     },
     {
       title: "Critical Minerals Dashboard",
       url: "https://criticalmineralsdashboard.com",
       desc: "Data visualization dashboard with interactive charts and real-time analytics",
-      tech: ["React", "D3.js", "Python", "PostgreSQL"],
+      tech: ["Nextjs", "Framer motion", "Gsap"],
       image: "/api/placeholder/400/250",
     },
      {
@@ -45,7 +45,7 @@ export  const experiences = [
     {
       company: "Alpinesoftitsolutions",
       role: "Full Stack Developer",
-      period: "2022 - Present",
+      period: "2023 - Present",
       description:
         "Led development of multiple web applications using React and Node.js, improving performance by 40%",
       achievements: [
