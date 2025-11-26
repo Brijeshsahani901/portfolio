@@ -32,11 +32,18 @@
       tech: ["React", "D3.js", "Python", "PostgreSQL"],
       image: "/api/placeholder/400/250",
     },
+     {
+      title: "Email Validator",
+      url: "https://emailValidator.alpinesoftit.com",
+      desc: "Real time validator",
+      tech: ["React", "nodejs", "mongodb", "tanstackquery"],
+      image: "/api/placeholder/400/250",
+    },
   ];
 
 export  const experiences = [
     {
-      company: "Tech Solutions Inc",
+      company: "Alpinesoftitsolutions",
       role: "Full Stack Developer",
       period: "2022 - Present",
       description:
@@ -45,17 +52,6 @@ export  const experiences = [
         "Reduced load times by 40%",
         "Mentored 3 junior developers",
         "Implemented CI/CD pipeline",
-      ],
-    },
-    {
-      company: "Startup XYZ",
-      role: "Frontend Developer",
-      period: "2021 - 2022",
-      description:
-        "Built responsive web interfaces and collaborated with design team to implement pixel-perfect UIs",
-      achievements: [
-        "Improved SEO scores by 60%",
-        "Built 15+ reusable components",
       ],
     },
   ];
