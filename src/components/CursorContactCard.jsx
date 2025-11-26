@@ -1,14 +1,6 @@
-// CursorContactCard.jsx
 import React, { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { HiMail, HiDownload } from "react-icons/hi";
-
-/**
- * Usage:
- * <CursorContactCard RESUME_URL="/resume.pdf" />
- *
- * Make sure Tailwind + framer-motion are installed & configured.
- */
 
 function InfoItem({ label, value, status }) {
   const statusColor =

@@ -1,6 +1,6 @@
 import  { useState,useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { HiMenu, HiX, HiDownload, HiMail, HiChevronDown } from "react-icons/hi";
+import { HiMenu, HiX, HiDownload, HiChevronDown } from "react-icons/hi";
 import {
   FaGithub,
   FaLinkedin,
@@ -131,11 +131,11 @@ export default function Portfolio() {
             )}
             <Link
               to="/portfolio"
-              className="ml-2 flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-500 px-4 py-2 rounded-lg text-sm font-semibold shadow-lg shadow-cyan-500/25"
+              className="ml-2 flex items-center gap-2 transition bg-gradient-to-r from-cyan-500 to-blue-500 px-4 py-2 rounded-lg text-sm font-semibold shadow-lg shadow-cyan-500/25 hover:scale-105"
             >
               View Sidebar Portfolio
             </Link>
-            <motion.a
+            {/* <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               href={RESUME_URL}
@@ -143,7 +143,7 @@ export default function Portfolio() {
               className="ml-2 flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-purple-600 px-4 py-2 rounded-lg text-sm font-medium hover:from-indigo-500 hover:to-purple-500 transition-all shadow-lg shadow-indigo-500/25"
             >
               <HiDownload className="text-sm" /> Resume
-            </motion.a>
+            </motion.a> */}
           </nav>
 
           <motion.div
@@ -215,7 +215,7 @@ export default function Portfolio() {
                   transition={{ delay: 0.6 }}
                   className="flex flex-col sm:flex-row gap-4 mt-8 justify-center lg:justify-start"
                 >
-                  <motion.a
+                  {/* <motion.a
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     href={RESUME_URL}
@@ -223,7 +223,7 @@ export default function Portfolio() {
                     className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-indigo-600 to-purple-600 px-8 py-4 rounded-xl font-semibold hover:from-indigo-500 hover:to-purple-500 transition-all shadow-lg shadow-indigo-500/25"
                   >
                     <HiDownload /> Download CV
-                  </motion.a>
+                  </motion.a> */}
                   <motion.a
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
